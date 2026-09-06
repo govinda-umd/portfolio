@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGS-2026 Datasheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF0EA;
+    --surface:#F8F9F4;
+    --surface-2:#FFFFFF;
+    --ink:#14181A;
+    --muted:#5B655F;
+    --line:#CBD1C3;
+    --line-strong:#A9B1A2;
+    --accent:#DD4A1C;
+    --accent-ink:#FBF3EC;
+    --accent-2:#2E5D62;
+    --shadow: 20 24 22;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14181A;
+      --surface:#1A2022;
+      --surface-2:#1F2628;
+      --ink:#ECEFE8;
+      --muted:#93A19A;
+      --line:#2E3739;
+      --line-strong:#455052;
+      --accent:#FF6B3B;
+      --accent-ink:#14181A;
+      --accent-2:#7FB8BD;
+      --shadow: 0 0 0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14181A;
+    --surface:#1A2022;
+    --surface-2:#1F2628;
+    --ink:#ECEFE8;
+    --muted:#93A19A;
+    --line:#2E3739;
+    --line-strong:#455052;
+    --accent:#FF6B3B;
+    --accent-ink:#14181A;
+    --accent-2:#7FB8BD;
+    --shadow: 0 0 0;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  a{ color:inherit; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:60px;
+    gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:"Archivo", sans-serif; font-weight:800; letter-spacing:0.01em;
+    font-size:14px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .brand-mark{
+    width:26px; height:26px;
+    border:1.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:"IBM Plex Mono", monospace; font-size:11px; font-weight:600;
+    position:relative;
+    flex:none;
+  }
+  .brand-mark::before{
+    content:"";
+    position:absolute; top:-4px; left:-4px;
+    width:3px; height:3px; background:var(--accent); border-radius:50%;
+  }
+  .nav-links{
+    display:flex; gap:20px; list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px; letter-spacing:0.07em; text-transform:uppercase;
+    text-decoration:none; color:var(--muted);
+    padding:4px 0; border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .nav-links a:hover, .nav-links a.active{
+    color:var(--ink); border-color:var(--accent);
+  }
+  .nav-rev{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--muted);
+    letter-spacing:0.05em; white-space:nowrap;
+  }
+  .nav-links-wrap{ display:flex; align-items:center; gap:22px; overflow-x:auto; }
+  @media (max-width:900px){
+    .nav-rev{ display:none; }
+  }
+  @media (max-width:720px){
+    .nav-links{ gap:14px; }
+    .nav-links a{ font-size:10.5px; }
+    .brand span.full{ display:none; }
+  }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{ padding:76px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-2);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{
+    content:""; width:18px; height:1px; background:var(--accent-2);
+  }
+  .subhead{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500;
+    margin:0 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+
+  h1,h2,h3{ font-family:"Archivo", sans-serif; text-wrap:balance; margin:0; }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding-top:64px; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:start;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5.4vw, 62px);
+    font-weight:900; letter-spacing:-0.015em; line-height:1.02;
+    margin-bottom:14px;
+  }
+  .hero .role{
+    font-size:clamp(17px, 2vw, 21px);
+    font-weight:500; color:var(--muted);
+    margin-bottom:22px; max-width:38ch;
+  }
+  .hero .role .cursor{
+    display:inline-block; width:2px; height:1em; background:var(--accent);
+    margin-left:3px; vertical-align:-2px;
+    animation:blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .hero p.lede{ max-width:60ch; color:var(--ink); font-size:16px; }
+
+  .pins{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .pin{
+    display:flex; align-items:center; gap:8px;
+    padding:9px 14px;
+    border:1px solid var(--line-strong);
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px; letter-spacing:0.04em;
+    text-decoration:none; color:var(--ink);
+    background:var(--surface-2);
+    transition:border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .pin:hover{ border-color:var(--accent); transform:translateY(-1px); }
+  .pin b{ color:var(--accent); font-weight:600; }
+  .pin.primary{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+  .pin.primary:hover{ opacity:0.92; }
+
+  .spec-panel{
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    position:relative;
+  }
+  .spec-panel::before, .spec-panel::after{
+    content:""; position:absolute; width:9px; height:9px;
+    border:1.5px solid var(--accent);
+  }
+  .spec-panel::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .spec-panel::after{ top:-1px; right:-1px; border-left:none; border-bottom:none; }
+  .spec-title{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--muted);
+    padding:14px 18px; border-bottom:1px solid var(--line);
+  }
+  .spec-rows{ padding:6px 0; }
+  .spec-row{
+    display:grid; grid-template-columns:74px 1fr;
+    gap:12px; padding:11px 18px;
+    border-bottom:1px solid var(--line);
+    font-size:13.5px;
+  }
+  .spec-row:last-child{ border-bottom:none; }
+  .spec-row .k{ font-family:"IBM Plex Mono", monospace; color:var(--accent-2); font-size:11.5px; letter-spacing:0.06em; padding-top:1px; }
+  .spec-row .v{ color:var(--ink); }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- PROFILE ---------- */
+  .profile-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .profile-grid p{ max-width:60ch; margin:0 0 16px; }
+  .profile-grid p:last-child{ margin-bottom:0; }
+  @media (max-width:860px){ .profile-grid{ grid-template-columns:1fr; gap:12px; } }
+
+  /* ---------- RESEARCH / PROJECTS ---------- */
+  .work-list{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .work-item{
+    background:var(--surface); padding:28px;
+    display:grid; grid-template-columns:1fr 1.6fr; gap:28px;
+    transition:background .15s ease;
+  }
+  .work-item:hover{ background:var(--surface-2); }
+  .work-head{ display:flex; flex-direction:column; gap:8px; }
+  .work-name{ font-family:"Archivo", sans-serif; font-weight:800; font-size:19px; line-height:1.2; }
+  .work-tag{
+    display:inline-flex; align-self:flex-start; align-items:center; gap:6px;
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:0.06em;
+    color:var(--accent); border:1px solid var(--accent); padding:3px 8px;
+  }
+  .work-desc{ color:var(--muted); margin:4px 0 0; max-width:60ch; }
+  .work-specs{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .work-specs li{ font-size:13.5px; padding-left:16px; position:relative; }
+  .work-specs li::before{ content:"—"; position:absolute; left:0; color:var(--line-strong); }
+  @media (max-width:720px){ .work-item{ grid-template-columns:1fr; } }
+
+  /* ---------- CV: EXPERIENCE + EDUCATION TABLES ---------- */
+  .cv-block + .cv-block{ margin-top:44px; }
+  table.history{ width:100%; border-collapse:collapse; }
+  table.history th{
+    text-align:left; font-family:"IBM Plex Mono", monospace; font-size:11px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);
+    padding:0 16px 12px; border-bottom:1px solid var(--line-strong); font-weight:500;
+  }
+  table.history td{ padding:18px 16px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.history tr:last-child td{ border-bottom:none; }
+  .rev-tag{
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px; font-weight:600; color:var(--accent);
+    white-space:nowrap;
+  }
+  .hist-period{ font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--muted); white-space:nowrap; }
+  .hist-role{ font-weight:600; }
+  .hist-org{ color:var(--muted); font-weight:400; }
+  .hist-notes{ color:var(--ink); font-size:14.5px; max-width:48ch; }
+  .history-scroll{ overflow-x:auto; }
+  @media (max-width:720px){
+    table.history, table.history thead, table.history tbody, table.history th, table.history td, table.history tr{ display:block; }
+    table.history thead{ display:none; }
+    table.history tr{ padding:16px 0; border-bottom:1px solid var(--line); }
+    table.history td{ border:none; padding:3px 0; }
+  }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-list{ display:flex; flex-direction:column; border-top:1px solid var(--line); }
+  .pub-item{
+    display:grid; grid-template-columns:36px 1fr; gap:18px;
+    padding:20px 0; border-bottom:1px solid var(--line);
+  }
+  .pub-idx{ font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--accent-2); padding-top:2px; }
+  .pub-title{ font-weight:600; font-size:15.5px; }
+  .pub-meta{ color:var(--muted); font-size:13px; margin-top:5px; font-family:"IBM Plex Mono", monospace; letter-spacing:0.01em; }
+  .pub-meta i{ font-style:italic; font-family:"IBM Plex Sans", sans-serif; }
+
+  /* ---------- STACK ---------- */
+  .stack-groups{ display:grid; grid-template-columns:repeat(2, 1fr); gap:36px 48px; }
+  .stack-group h3{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:14px;
+    padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px;
+    border:1px solid var(--line-strong); padding:6px 11px;
+    background:var(--surface);
+  }
+  @media (max-width:720px){ .stack-groups{ grid-template-columns:1fr; gap:28px; } }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{ padding:64px 0 40px; }
+  .contact-head{ display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:34px; }
+  .contact-head h2{ font-size:clamp(28px,4vw,40px); font-weight:800; }
+  .contact-head p{ color:var(--muted); max-width:40ch; margin:10px 0 0; }
+  .pinout{ display:grid; grid-template-columns:repeat(4, 1fr); border:1px solid var(--line-strong); }
+  .pinout a{
+    text-decoration:none; padding:20px 16px; border-right:1px solid var(--line-strong);
+    display:flex; flex-direction:column; gap:6px;
+    transition:background .15s ease;
+  }
+  .pinout a:last-child{ border-right:none; }
+  .pinout a:hover{ background:var(--surface); }
+  .pinout .pn{ font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--accent); }
+  .pinout .pv{ font-family:"Archivo", sans-serif; font-weight:700; font-size:15px; }
+  @media (max-width:720px){ .pinout{ grid-template-columns:1fr 1fr; } .pinout a{ border-bottom:1px solid var(--line-strong); } }
+
+  .fine-print{
+    margin-top:32px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">SS</span>
+      <span class="full">SRINIVAS&nbsp;G.&nbsp;SURAMPUDI</span>
+    </a>
+    <div class="nav-links-wrap">
+      <ul class="nav-links">
+        <li><a href="#profile" data-nav>Profile</a></li>
+        <li><a href="#research" data-nav>Research</a></li>
+        <li><a href="#cv" data-nav>CV</a></li>
+        <li><a href="#publications" data-nav>Publications</a></li>
+        <li><a href="#stack" data-nav>Stack</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+      <span class="nav-rev mono">REV 2026.09</span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Personnel Datasheet · Type PhD-ML/Neuro</p>
+        <h1>Srinivas Govinda Surampudi</h1>
+        <p class="role">Machine-learning researcher — deep learning, probabilistic modeling &amp; statistical inference.<span class="cursor" aria-hidden="true"></span></p>
+        <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent and graph neural networks, multimodal contrastive learning, and retrieval-augmented generation — translating open-ended scientific problems into robust, testable systems.</p>
+        <div class="pins">
+          <a class="pin primary" href="mailto:govinda.surampudi@gmail.com"><b>&#9993;</b> EMAIL</a>
+          <a class="pin" href="tel:+13017428594">+1 (301) 742-8594</a>
+          <a class="pin" href="https://www.linkedin.com/in/govindasurampudi" target="_blank" rel="noopener">LINKEDIN</a>
+          <a class="pin" href="https://scholar.google.com/citations?user=02CPu2oAAAAJ&amp;hl=en" target="_blank" rel="noopener">GOOGLE SCHOLAR</a>
+        </div>
+      </div>
+      <div class="spec-panel reveal">
+        <p class="spec-title">Parameters</p>
+        <div class="spec-rows">
+          <div class="spec-row"><span class="k">STATUS</span><span class="v">PhD candidate, defending Jun 2026</span></div>
+          <div class="spec-row"><span class="k">BASE</span><span class="v">College Park, MD (UMD)</span></div>
+          <div class="spec-row"><span class="k">FOCUS</span><span class="v">Representation learning, Bayesian modeling, interpretable ML</span></div>
+          <div class="spec-row"><span class="k">EXP.</span><span class="v">10+ years, research (2015–2026)</span></div>
+          <div class="spec-row"><span class="k">CORE</span><span class="v">Python · PyTorch · Bayesian inference</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section — Profile</p>
+      <div class="profile-grid">
+        <p class="reveal">I'm a machine-learning researcher with a PhD in Electrical and Computer Engineering, specializing in deep learning, representation learning, probabilistic modeling, and statistical inference. I build systems using Transformers, recurrent and graph neural networks, multimodal contrastive learning, retrieval-augmented generation, and interpretable ML.</p>
+        <p class="reveal">My work is grounded in hypothesis-driven experimentation, uncertainty quantification, and rigorous model evaluation — built on scalable Python/PyTorch workflows, with a track record of turning open-ended scientific problems into robust, testable systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section — Selected Research &amp; ML Projects</p>
+      <div class="work-list reveal">
+
+        <article class="work-item">
+          <div class="work-head">
+            <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Interpretability &amp; LLM Evaluation</span>
+            <span class="work-tag">2026</span>
+          </div>
+          <div>
+            <p class="work-desc">Compared three representation-learning paradigms — supervised multi-task, supervised-contrastive, and self-supervised contrastive — across GRU/Transformer backbones on a 6-class motor-decoding task, holding the encoder interface fixed across 30 repeated subject-level splits.</p>
+            <ul class="work-specs">
+              <li>Built a multi-method interpretability framework (Saliency, Integrated Gradients, exact Shapley, LIME, CAV/TCAV) across 1,440 model–concept evaluations</li>
+              <li>Built a fully local RAG + LLM pipeline (MiniLM retrieval, cross-encoder reranking, quantized Llama-3.2-3B, LoRA fine-tuning); lifted structured-output compliance from 0/8 to 8/8</li>
+              <li>Improved domain-specific retrieval top-1 accuracy from 43.9% to 61.0%; diagnosed an LLM faithfulness failure and replaced free-form judging with a deterministic evidence-based verdict layer</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-head">
+            <span class="work-name">Bayesian Generative Modeling for Latent Network Structure</span>
+            <span class="work-tag">2024–2026</span>
+          </div>
+          <div>
+            <p class="work-desc">Reframed brain-network community detection from descriptive clustering into formal Bayesian hypothesis testing, evaluating whether competing organizational principles were actually supported by the data.</p>
+            <ul class="work-specs">
+              <li>Established non-degree-corrected hierarchical organization as best-supported by comparing 7 and 5 stochastic block model variants against the field-standard modularity heuristic, in rodent and human networks respectively</li>
+              <li>Showed human functional networks reorganize under affective demands by reweighting shared latent modes, not by redrawing community boundaries — invisible to conventional single-partition analysis</li>
+              <li>Extended the open-source graph-tool library to compute hierarchical community-membership marginals unavailable in its standard implementation</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-head">
+            <span class="work-name">Deep Sequence &amp; Graph Models for Brain Decoding and Representation Learning</span>
+            <span class="work-tag">2020–2022</span>
+          </div>
+          <div>
+            <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at ~90% accuracy, then extended the framework to graph neural networks over structural connectivity.</p>
+            <ul class="work-specs">
+              <li>Reached 96% classification accuracy with GNNs, explaining ~60% of variance against RNN and CNN baselines</li>
+              <li>Validated GRU predictions via gradient-based attribution and causal network lesioning — ablating high-attribution networks caused significantly larger performance drops than random controls</li>
+              <li>Applied transfer learning from the frozen GRU representation to predict fluid intelligence and verbal IQ (p &lt; 0.005 for both)</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-head">
+            <span class="work-name">Multiple Kernel Learning for Structural–Functional Brain Modeling</span>
+            <span class="work-tag">2015–2019</span>
+          </div>
+          <div>
+            <p class="work-desc">Reformulated dynamical models of brain structure–function relationships as Multiple Kernel Learning problems with LASSO-regularized optimization.</p>
+            <ul class="work-specs">
+              <li>Achieved 71% correlation with held-out functional connectivity</li>
+              <li>Learned a low-dimensional dynamical manifold of time-varying connectivity, clustering it into latent brain states linked back to anatomical structure</li>
+              <li>Validated latent-state structure across repeated splits (0.86–0.98 correlation) and an independent 100-subject HCP cohort without retraining</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section — Curriculum Vitae</p>
+
+      <div class="cv-block reveal">
+        <p class="subhead">Research Experience</p>
+        <div class="history-scroll">
+          <table class="history">
+            <thead>
+              <tr><th>Rev</th><th>Period</th><th>Role</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rev-tag">v2</td>
+                <td class="hist-period">2018 — 2026</td>
+                <td><div class="hist-role">Graduate Research Assistant</div><div class="hist-org">Laboratory of Cognition &amp; Emotion, University of Maryland</div></td>
+                <td class="hist-notes">Built deep learning models (GRUs, encoder–decoders, GNNs) for fMRI data reaching 96% accuracy; architected automated pipelines executing 10,000+ model runs at 4× throughput; mentored junior researchers.</td>
+              </tr>
+              <tr>
+                <td class="rev-tag">v1</td>
+                <td class="hist-period">2015 — 2018</td>
+                <td><div class="hist-role">Research Assistant, CVIT</div><div class="hist-org">International Institute of Information Technology, Hyderabad</div></td>
+                <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity; designed MKL/tMKL frameworks reaching 71% accuracy (+19% over baselines); two peer-reviewed publications.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cv-block reveal">
+        <p class="subhead">Education</p>
+        <div class="history-scroll">
+          <table class="history">
+            <thead>
+              <tr><th>Deg</th><th>Period</th><th>Program</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rev-tag">PHD</td>
+                <td class="hist-period">2019 — 2026</td>
+                <td><div class="hist-role">Ph.D., Electrical &amp; Computer Engineering</div><div class="hist-org">University of Maryland · GPA 3.9/4.0</div></td>
+                <td class="hist-notes">Dissertation: "A Probabilistic Ontology of Functional Brain Organization."</td>
+              </tr>
+              <tr>
+                <td class="rev-tag">MS·I</td>
+                <td class="hist-period">2019 — 2025</td>
+                <td><div class="hist-role">M.S., Electrical &amp; Computer Engineering (Integrated)</div><div class="hist-org">University of Maryland · GPA 3.9/4.0</div></td>
+                <td class="hist-notes">Focus: Deep Neural Networks and Statistical Inference.</td>
+              </tr>
+              <tr>
+                <td class="rev-tag">MS·R</td>
+                <td class="hist-period">2016 — 2018</td>
+                <td><div class="hist-role">M.S. by Research, Computer Science &amp; Engineering</div><div class="hist-org">IIIT Hyderabad · GPA 8.7/10.0</div></td>
+                <td class="hist-notes">Thesis: Graph-spectral techniques for analyzing resting-state neuroimaging data.</td>
+              </tr>
+              <tr>
+                <td class="rev-tag">B.TECH</td>
+                <td class="hist-period">2011 — 2015</td>
+                <td><div class="hist-role">B.Tech., Electronics &amp; Communication Engineering</div><div class="hist-org">VNIT Nagpur · GPA 7.6/10.0</div></td>
+                <td class="hist-notes">Focus: Signal Processing and Unsupervised Neural Models.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section — Selected Publications</p>
+      <div class="pub-list reveal">
+        <div class="pub-item">
+          <span class="pub-idx mono">01</span>
+          <div>
+            <p class="pub-title">"Bayesian generative modeling reveals a multi-modal hierarchical architecture in the mouse functional connectome."</p>
+            <p class="pub-meta">Surampudi, S. G., et al. · <i>European Journal of Neuroscience</i> · submitted</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-idx mono">02</span>
+          <div>
+            <p class="pub-title">"Threat and Reward Imminence Processing in the Human Brain."</p>
+            <p class="pub-meta">Murty, D. V. P. S., Song, S., Surampudi, S. G., &amp; Pessoa, L. · <i>The Journal of Neuroscience</i> 43(16), 2973–2987 · 2023</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-idx mono">03</span>
+          <div>
+            <p class="pub-title">"Learning brain dynamics for decoding and predicting individual differences."</p>
+            <p class="pub-meta">Misra, J.*, Surampudi, S. G.*, et al. · <i>PLoS Computational Biology</i> 17(9), e1008943 · 2021 · *Co-first author</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-idx mono">04</span>
+          <div>
+            <p class="pub-title">"Resting state dynamics meets anatomical structure: Temporal multiple kernel learning (tMKL) model."</p>
+            <p class="pub-meta">Surampudi, S. G., Misra, J., et al. · <i>NeuroImage</i> 184, 609–620 · 2019</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-idx mono">05</span>
+          <div>
+            <p class="pub-title">"Multiple Kernel Learning Model for Relating Structural and Functional Connectivity in the Brain."</p>
+            <p class="pub-meta">Surampudi, S. G., et al. · <i>Scientific Reports</i> 8(1), 3265 · 2018</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section — Tooling</p>
+      <div class="stack-groups reveal">
+        <div class="stack-group">
+          <h3>Machine Learning &amp; AI</h3>
+          <div class="chip-row">
+            <span class="chip">Deep Learning</span><span class="chip">Transformers</span><span class="chip">RNNs</span><span class="chip">GNNs</span><span class="chip">Representation Learning</span><span class="chip">Contrastive Learning</span><span class="chip">Multimodal Learning</span><span class="chip">RAG</span><span class="chip">LLM Evaluation</span><span class="chip">Interpretability</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Probabilistic Modeling &amp; Statistics</h3>
+          <div class="chip-row">
+            <span class="chip">Bayesian Generative Models</span><span class="chip">MCMC</span><span class="chip">Uncertainty Quantification</span><span class="chip">Bayesian Model Comparison</span><span class="chip">Bootstrap Resampling</span><span class="chip">Permutation Testing</span><span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">Time-Series Modeling</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Programming &amp; Frameworks</h3>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Pandas</span><span class="chip">Hugging Face</span><span class="chip">Sentence Transformers</span><span class="chip">Captum</span><span class="chip">MLX</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">R</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Computing &amp; ML Workflows</h3>
+          <div class="chip-row">
+            <span class="chip">Linux</span><span class="chip">Slurm</span><span class="chip">HPC</span><span class="chip">Parallel Processing</span><span class="chip">Git</span><span class="chip">Experiment Tracking</span><span class="chip">Automated Pipelines</span><span class="chip">Reproducible Environments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-head reveal">
+        <h2>Get in touch.</h2>
+        <p>Open to research scientist and applied ML roles. Fastest way to reach me is email.</p>
+      </div>
+      <div class="pinout reveal">
+        <a href="mailto:govinda.surampudi@gmail.com"><span class="pn mono">PIN&nbsp;1</span><span class="pv">Email</span></a>
+        <a href="tel:+13017428594"><span class="pn mono">PIN&nbsp;2</span><span class="pv">Phone</span></a>
+        <a href="https://www.linkedin.com/in/govindasurampudi" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;3</span><span class="pv">LinkedIn</span></a>
+        <a href="https://scholar.google.com/citations?user=02CPu2oAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;4</span><span class="pv">Google Scholar</span></a>
+      </div>
+      <div class="fine-print">
+        <span>DOC. S-SURAMPUDI/2026 · PAGE 1 OF 1</span>
+        <span>LAST VERIFIED 2026-09-06</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reveals = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      reveals.forEach(function(el){ el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(function(el){ io.observe(el); });
+    }
+
+    var navLinks = document.querySelectorAll('[data-nav]');
+    var sections = Array.prototype.map.call(navLinks, function(a){
+      return document.querySelector(a.getAttribute('href'));
+    }).filter(Boolean);
+
+    if ('IntersectionObserver' in window && sections.length) {
+      var navIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var link = document.querySelector('[data-nav][href="#' + entry.target.id + '"]');
+          if (!link) return;
+          if (entry.isIntersecting) {
+            navLinks.forEach(function(l){ l.classList.remove('active'); });
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -50% 0px' });
+      sections.forEach(function(s){ navIo.observe(s); });
+    }
+  })();
+</script>
+
+</body>
+</html>
