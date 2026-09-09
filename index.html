@@ -365,7 +365,7 @@
         <p class="eyebrow">Personnel Datasheet · Type PhD-ML/Neuro</p>
         <h1>Srinivas Govinda Surampudi</h1>
         <p class="role">Machine-learning researcher — deep learning, probabilistic modeling &amp; statistical inference.<span class="cursor" aria-hidden="true"></span></p>
-        <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent and graph neural networks, multimodal contrastive learning, and retrieval-augmented generation — translating open-ended scientific problems into robust, testable systems.</p>
+        <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, and retrieval-augmented generation — translating open-ended scientific problems into robust, testable systems.</p>
         <div class="pins">
           <a class="pin primary" href="mailto:govinda.surampudi@gmail.com"><b>&#9993;</b> EMAIL</a>
           <a class="pin" href="tel:+13017428594">+1 (301) 742-8594</a>
@@ -390,7 +390,7 @@
     <div class="wrap">
       <p class="eyebrow reveal">Section — Profile</p>
       <div class="profile-grid">
-        <p class="reveal">I'm a machine-learning researcher with a PhD in Electrical and Computer Engineering, specializing in deep learning, representation learning, probabilistic modeling, and statistical inference. I build systems using Transformers, recurrent and graph neural networks, multimodal contrastive learning, retrieval-augmented generation, and interpretable ML.</p>
+        <p class="reveal">I'm a machine-learning researcher with a PhD in Electrical and Computer Engineering, specializing in deep learning, representation learning, probabilistic modeling, and statistical inference. I build systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, retrieval-augmented generation, and interpretable ML.</p>
         <p class="reveal">My work is grounded in hypothesis-driven experimentation, uncertainty quantification, and rigorous model evaluation — built on scalable Python/PyTorch workflows, with a track record of turning open-ended scientific problems into robust, testable systems.</p>
       </div>
     </div>
@@ -403,60 +403,59 @@
 
         <article class="work-item">
           <div class="work-head">
-            <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Interpretability &amp; LLM Evaluation</span>
+            <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Explainable AI &amp; LLM Evaluation</span>
             <span class="work-tag">2026</span>
           </div>
           <div>
-            <p class="work-desc">Compared three representation-learning paradigms — supervised multi-task, supervised-contrastive, and self-supervised contrastive — across GRU/Transformer backbones on a 6-class motor-decoding task, holding the encoder interface fixed across 30 repeated subject-level splits.</p>
+            <p class="work-desc">Compared three training objectives — supervised multi-task, supervised-contrastive, and self-supervised — across GRU and Transformer backbones for sequence classification: Transformer favored under both supervised objectives, GRU under self-supervised (paired test, 20 splits, p &lt; 0.05).</p>
             <ul class="work-specs">
-              <li>Built a multi-method interpretability framework (Saliency, Integrated Gradients, exact Shapley, LIME, CAV/TCAV) across 1,440 model–concept evaluations</li>
-              <li>Built a fully local RAG + LLM pipeline (MiniLM retrieval, cross-encoder reranking, quantized Llama-3.2-3B, LoRA fine-tuning); lifted structured-output compliance from 0/8 to 8/8</li>
-              <li>Improved domain-specific retrieval top-1 accuracy from 43.9% to 61.0%; diagnosed an LLM faithfulness failure and replaced free-form judging with a deterministic evidence-based verdict layer</li>
+              <li>Built a CAV-probing and attribution framework that ran unchanged across all three representation models, surfacing a visual-cue confound via cross-model attribution consensus</li>
+              <li>Built a two-stage RAG verification pipeline — domain-adapted MiniLM bi-encoder plus a cross-encoder reranker — lifting literature-retrieval top-1 accuracy from 43.9% to 61.0%</li>
+              <li>Measured LLM (Llama-3.2-3B) sycophancy — 10/12 judgments defaulted to agreement — and engineered deterministic guardrails from retrieval-stance × concept-sensitivity signals, reducing the LLM to narration only</li>
             </ul>
           </div>
         </article>
 
         <article class="work-item">
           <div class="work-head">
-            <span class="work-name">Bayesian Generative Modeling for Latent Network Structure</span>
+            <span class="work-name">Probabilistic Graph Clustering: Bayesian Model Selection &amp; Uncertainty Quantification</span>
             <span class="work-tag">2024–2026</span>
           </div>
           <div>
-            <p class="work-desc">Reframed brain-network community detection from descriptive clustering into formal Bayesian hypothesis testing, evaluating whether competing organizational principles were actually supported by the data.</p>
+            <p class="work-desc">Compared 7 non-parametric Bayesian generative models via custom MCMC inference to discover latent cluster architectures across high-dimensional graphs.</p>
             <ul class="work-specs">
-              <li>Established non-degree-corrected hierarchical organization as best-supported by comparing 7 and 5 stochastic block model variants against the field-standard modularity heuristic, in rodent and human networks respectively</li>
-              <li>Showed human functional networks reorganize under affective demands by reweighting shared latent modes, not by redrawing community boundaries — invisible to conventional single-partition analysis</li>
-              <li>Extended the open-source graph-tool library to compute hierarchical community-membership marginals unavailable in its standard implementation</li>
+              <li>Uncovered multi-solution posterior landscapes overlooked by SOTA methods, using mixture modeling for uncertainty quantification</li>
+              <li>Condensed precision/recall-style partition-overlap metrics into a single interpretable score via Shannon entropy</li>
+              <li>Extended an open-source statistics library to handle a case it didn't support, now a foundational dependency for the project</li>
             </ul>
           </div>
         </article>
 
         <article class="work-item">
           <div class="work-head">
-            <span class="work-name">Deep Sequence &amp; Graph Models for Brain Decoding and Representation Learning</span>
+            <span class="work-name">Deep Sequence Models for Brain Decoding and Representation Learning</span>
             <span class="work-tag">2020–2022</span>
           </div>
           <div>
-            <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at ~90% accuracy, then extended the framework to graph neural networks over structural connectivity.</p>
+            <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at ~90% accuracy; a temporal-order ablation (wavestrapping) dropped accuracy by 35+ points, confirming the model relies on true sequence dynamics, not signal statistics alone.</p>
             <ul class="work-specs">
-              <li>Reached 96% classification accuracy with GNNs, explaining ~60% of variance against RNN and CNN baselines</li>
-              <li>Validated GRU predictions via gradient-based attribution and causal network lesioning — ablating high-attribution networks caused significantly larger performance drops than random controls</li>
-              <li>Applied transfer learning from the frozen GRU representation to predict fluid intelligence and verbal IQ (p &lt; 0.005 for both)</li>
+              <li>Compressed 300 input brain regions into a 10-dimensional latent code (96% reduction) while retaining 98% of full-model classification accuracy</li>
+              <li>Cross-validated gradient-based saliency against direct network lesioning — ablating the flagged regions caused significantly larger performance drops than random controls</li>
+              <li>Froze the learned GRU representation to predict two auxiliary behavioral variables from brain activity alone (p &lt; 0.005 for both)</li>
             </ul>
           </div>
         </article>
 
         <article class="work-item">
           <div class="work-head">
-            <span class="work-name">Multiple Kernel Learning for Structural–Functional Brain Modeling</span>
-            <span class="work-tag">2015–2019</span>
+            <span class="work-name">Graph Signal Processing: Multiple Kernel Learning &amp; Out-of-Distribution Validation</span>
+            <span class="work-tag">2016–2018</span>
           </div>
           <div>
-            <p class="work-desc">Reformulated dynamical models of brain structure–function relationships as Multiple Kernel Learning problems with LASSO-regularized optimization.</p>
+            <p class="work-desc">Modeled a dynamical system as a weighted combination of spectral graph filters (LASSO-fit), mapping one relational view of a graph to another — 71% correlation, +19 points over nonlinear baselines.</p>
             <ul class="work-specs">
-              <li>Achieved 71% correlation with held-out functional connectivity</li>
-              <li>Learned a low-dimensional dynamical manifold of time-varying connectivity, clustering it into latent brain states linked back to anatomical structure</li>
-              <li>Validated latent-state structure across repeated splits (0.86–0.98 correlation) and an independent 100-subject HCP cohort without retraining</li>
+              <li>Used spectral embedding, Gaussian mixture clustering, and Markov-chain dynamics to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
+              <li>Validated with 250+ perturbation stress tests, k-fold cross-validation, and zero-shot transfer to an independent, larger dataset</li>
             </ul>
           </div>
         </article>
@@ -481,13 +480,13 @@
                 <td class="rev-tag">v2</td>
                 <td class="hist-period">2018 — 2026</td>
                 <td><div class="hist-role">Graduate Research Assistant</div><div class="hist-org">Laboratory of Cognition &amp; Emotion, University of Maryland</div></td>
-                <td class="hist-notes">Built deep learning models (GRUs, encoder–decoders, GNNs) for fMRI data reaching 96% accuracy; architected automated pipelines executing 10,000+ model runs at 4× throughput; mentored junior researchers.</td>
+                <td class="hist-notes">Engineered a fault-tolerant MCMC pipeline on a Linux HPC cluster (10,000+ model runs, 4× throughput), later adopted lab-wide; founded a cross-disciplinary knowledge-sharing group; co-developed UMD's first real-time behavioral-game fMRI platform and a multi-level analysis pipeline across 6+ datasets.</td>
               </tr>
               <tr>
                 <td class="rev-tag">v1</td>
                 <td class="hist-period">2015 — 2018</td>
                 <td><div class="hist-role">Research Assistant, CVIT</div><div class="hist-org">International Institute of Information Technology, Hyderabad</div></td>
-                <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity; designed MKL/tMKL frameworks reaching 71% accuracy (+19% over baselines); two peer-reviewed publications.</td>
+                <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity (two publications); preprocessed large-scale HCP fMRI/DTI data, building the lab's structural and functional connectivity pipelines; mentored a junior lab member in graph signal processing.</td>
               </tr>
             </tbody>
           </table>
@@ -584,25 +583,25 @@
         <div class="stack-group">
           <h3>Machine Learning &amp; AI</h3>
           <div class="chip-row">
-            <span class="chip">Deep Learning</span><span class="chip">Transformers</span><span class="chip">RNNs</span><span class="chip">GNNs</span><span class="chip">Representation Learning</span><span class="chip">Contrastive Learning</span><span class="chip">Multimodal Learning</span><span class="chip">RAG</span><span class="chip">LLM Evaluation</span><span class="chip">Interpretability</span>
+            <span class="chip">Deep Learning</span><span class="chip">Transformers</span><span class="chip">RNNs</span><span class="chip">Representation Learning</span><span class="chip">Contrastive Learning</span><span class="chip">Multimodal Learning</span><span class="chip">Embeddings</span><span class="chip">RAG</span><span class="chip">Bi-/Cross-Encoder Retrieval</span><span class="chip">Collaborative Filtering</span><span class="chip">Recommender Systems</span><span class="chip">NLP</span><span class="chip">LLM Evaluation</span><span class="chip">LLM Fine-Tuning (LoRA)</span><span class="chip">Interpretability (CAV/TCAV)</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Probabilistic Modeling &amp; Statistics</h3>
           <div class="chip-row">
-            <span class="chip">Bayesian Generative Models</span><span class="chip">MCMC</span><span class="chip">Uncertainty Quantification</span><span class="chip">Bayesian Model Comparison</span><span class="chip">Bootstrap Resampling</span><span class="chip">Permutation Testing</span><span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">Time-Series Modeling</span>
+            <span class="chip">Bayesian Generative Models</span><span class="chip">MCMC</span><span class="chip">Uncertainty Quantification</span><span class="chip">Bayesian Model Comparison</span><span class="chip">Convex Optimization</span><span class="chip">Bootstrap Resampling</span><span class="chip">Permutation Testing</span><span class="chip">Non-Parametric Tests</span><span class="chip">A/B Testing</span><span class="chip">FDR Correction</span><span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">Time-Series Modeling</span><span class="chip">Dimensionality Reduction</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Programming &amp; Frameworks</h3>
           <div class="chip-row">
-            <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Pandas</span><span class="chip">Hugging Face</span><span class="chip">Sentence Transformers</span><span class="chip">Captum</span><span class="chip">MLX</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">R</span>
+            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Pandas</span><span class="chip">Hugging Face</span><span class="chip">Sentence Transformers</span><span class="chip">Captum</span><span class="chip">MLX</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">R</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Computing &amp; ML Workflows</h3>
           <div class="chip-row">
-            <span class="chip">Linux</span><span class="chip">Slurm</span><span class="chip">HPC</span><span class="chip">Parallel Processing</span><span class="chip">Git</span><span class="chip">Experiment Tracking</span><span class="chip">Automated Pipelines</span><span class="chip">Reproducible Environments</span>
+            <span class="chip">Linux</span><span class="chip">Slurm</span><span class="chip">HPC</span><span class="chip">Distributed Computing</span><span class="chip">Git</span><span class="chip">CI/CD (GitHub Actions)</span><span class="chip">Experiment Tracking</span><span class="chip">Automated Pipelines</span><span class="chip">Reproducible Environments</span>
           </div>
         </div>
       </div>
@@ -623,7 +622,7 @@
       </div>
       <div class="fine-print">
         <span>DOC. S-SURAMPUDI/2026 · PAGE 1 OF 1</span>
-        <span>LAST VERIFIED 2026-09-06</span>
+        <span>LAST VERIFIED 2026-09-08</span>
       </div>
     </div>
   </footer>
