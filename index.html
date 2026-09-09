@@ -241,23 +241,52 @@
   /* ---------- RESEARCH / PROJECTS ---------- */
   .work-list{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
   .work-item{
-    background:var(--surface); padding:28px;
-    display:grid; grid-template-columns:1fr 1.6fr; gap:28px;
+    background:var(--surface);
+    display:grid; grid-template-columns:0.85fr 1fr; gap:0;
     transition:background .15s ease;
   }
   .work-item:hover{ background:var(--surface-2); }
+
+  .work-fig{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    padding:16px; min-height:220px;
+    background:#fff; border-right:1px solid var(--line);
+  }
+  .work-fig.placeholder{ background:var(--surface); }
+  .work-fig a{ display:block; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .work-fig img{ display:block; max-width:100%; max-height:290px; width:auto; height:auto; }
+  .work-fig svg{ display:block; width:100%; height:100%; max-height:260px; }
+  .fig-cap{
+    position:absolute; left:8px; bottom:8px; font-family:"IBM Plex Mono", monospace; font-size:9.5px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);
+    background:color-mix(in srgb, var(--bg) 82%, transparent); padding:3px 7px; border:1px solid var(--line);
+  }
+
+  .work-body{ padding:26px 28px; display:flex; flex-direction:column; }
   .work-head{ display:flex; flex-direction:column; gap:8px; }
-  .work-name{ font-family:"Archivo", sans-serif; font-weight:800; font-size:19px; line-height:1.2; }
+  .work-name{ font-family:"Archivo", sans-serif; font-weight:800; font-size:19px; line-height:1.2; margin-top:8px; }
   .work-tag{
     display:inline-flex; align-self:flex-start; align-items:center; gap:6px;
     font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:0.06em;
     color:var(--accent); border:1px solid var(--accent); padding:3px 8px;
   }
-  .work-desc{ color:var(--muted); margin:4px 0 0; max-width:60ch; }
-  .work-specs{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .work-desc{ color:var(--muted); margin:10px 0 0; }
+  .work-specs{ list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:9px; }
   .work-specs li{ font-size:13.5px; padding-left:16px; position:relative; }
   .work-specs li::before{ content:"—"; position:absolute; left:0; color:var(--line-strong); }
-  @media (max-width:720px){ .work-item{ grid-template-columns:1fr; } }
+  .linkrow{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+  .linkbtn{
+    display:inline-flex; align-items:center; gap:6px; font-family:"IBM Plex Mono", monospace; font-size:11.5px;
+    letter-spacing:0.04em; text-decoration:none; color:var(--ink); border:1px solid var(--line-strong);
+    padding:7px 12px; background:var(--surface-2);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .linkbtn:hover{ border-color:var(--accent); transform:translateY(-1px); }
+  .linkbtn.solid{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+  @media (max-width:720px){
+    .work-item{ grid-template-columns:1fr; }
+    .work-fig{ border-right:none; border-bottom:1px solid var(--line); }
+  }
 
   /* ---------- CV: EXPERIENCE + EDUCATION TABLES ---------- */
   .cv-block + .cv-block{ margin-top:44px; }
@@ -293,6 +322,8 @@
   }
   .pub-idx{ font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--accent-2); padding-top:2px; }
   .pub-title{ font-weight:600; font-size:15.5px; }
+  .pub-title a{ text-decoration:none; border-bottom:1px solid var(--line-strong); transition:border-color .15s ease, color .15s ease; }
+  .pub-title a:hover{ border-color:var(--accent); color:var(--accent); }
   .pub-meta{ color:var(--muted); font-size:13px; margin-top:5px; font-family:"IBM Plex Mono", monospace; letter-spacing:0.01em; }
   .pub-meta i{ font-style:italic; font-family:"IBM Plex Sans", sans-serif; }
 
@@ -402,61 +433,122 @@
       <div class="work-list reveal">
 
         <article class="work-item">
-          <div class="work-head">
-            <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Explainable AI &amp; LLM Evaluation</span>
-            <span class="work-tag">2026</span>
+          <div class="work-fig placeholder">
+            <svg viewBox="0 0 500 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <defs>
+                <pattern id="gridPH" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0H0V20" fill="none" stroke="var(--line)" stroke-width="1"/>
+                </pattern>
+                <marker id="arrPH" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent)"/>
+                </marker>
+              </defs>
+              <rect width="500" height="300" fill="url(#gridPH)"/>
+              <g fill="none" stroke="var(--accent-2)" stroke-width="2">
+                <rect x="35" y="120" width="100" height="55" rx="2"/>
+                <rect x="200" y="120" width="100" height="55" rx="2"/>
+                <rect x="365" y="120" width="100" height="55" rx="2"/>
+              </g>
+              <g stroke="var(--accent)" stroke-width="2" fill="none">
+                <path d="M135 147 H200" marker-end="url(#arrPH)"/>
+                <path d="M300 147 H365" marker-end="url(#arrPH)"/>
+              </g>
+              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="middle">
+                <text x="85" y="151">ENCODE</text>
+                <text x="250" y="151">REPRESENT</text>
+                <text x="415" y="151">EVALUATE</text>
+              </g>
+            </svg>
+            <span class="fig-cap">Fig. — placeholder</span>
           </div>
-          <div>
+          <div class="work-body">
+            <div class="work-head">
+              <span class="work-tag">2026</span>
+              <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Explainable AI &amp; LLM Evaluation</span>
+            </div>
             <p class="work-desc">Compared three training objectives — supervised multi-task, supervised-contrastive, and self-supervised — across GRU and Transformer backbones for sequence classification: Transformer favored under both supervised objectives, GRU under self-supervised (paired test, 20 splits, p &lt; 0.05).</p>
             <ul class="work-specs">
               <li>Built a CAV-probing and attribution framework that ran unchanged across all three representation models, surfacing a visual-cue confound via cross-model attribution consensus</li>
               <li>Built a two-stage RAG verification pipeline — domain-adapted MiniLM bi-encoder plus a cross-encoder reranker — lifting literature-retrieval top-1 accuracy from 43.9% to 61.0%</li>
               <li>Measured LLM (Llama-3.2-3B) sycophancy — 10/12 judgments defaulted to agreement — and engineered deterministic guardrails from retrieval-stance × concept-sensitivity signals, reducing the LLM to narration only</li>
             </ul>
+            <div class="linkrow">
+              <a class="linkbtn" href="https://github.com/govinda-umd/NeuroLens-RAG" target="_blank" rel="noopener">&lt;/&gt; Code</a>
+            </div>
           </div>
         </article>
 
         <article class="work-item">
-          <div class="work-head">
-            <span class="work-name">Probabilistic Graph Clustering: Bayesian Model Selection &amp; Uncertainty Quantification</span>
-            <span class="work-tag">2024–2026</span>
+          <div class="work-fig">
+            <a href="assets/figures/bgm.jpg" target="_blank" rel="noopener">
+              <img src="assets/figures/bgm.jpg" alt="Nested stochastic block model schematic, competing organizational schemes, and consensus solution across mouse brain networks" loading="lazy">
+            </a>
+            <span class="fig-cap">Fig. 1</span>
           </div>
-          <div>
+          <div class="work-body">
+            <div class="work-head">
+              <span class="work-tag">2024–2026</span>
+              <span class="work-name">Probabilistic Graph Clustering: Bayesian Model Selection &amp; Uncertainty Quantification</span>
+            </div>
             <p class="work-desc">Compared 7 non-parametric Bayesian generative models via custom MCMC inference to discover latent cluster architectures across high-dimensional graphs.</p>
             <ul class="work-specs">
               <li>Uncovered multi-solution posterior landscapes overlooked by SOTA methods, using mixture modeling for uncertainty quantification</li>
               <li>Condensed precision/recall-style partition-overlap metrics into a single interpretable score via Shannon entropy</li>
               <li>Extended an open-source statistics library to handle a case it didn't support, now a foundational dependency for the project</li>
             </ul>
+            <div class="linkrow">
+              <a class="linkbtn solid" href="https://doi.org/10.64898/2026.06.01.729443" target="_blank" rel="noopener">↗ Paper</a>
+              <a class="linkbtn" href="https://github.com/govinda-umd/network_estimation" target="_blank" rel="noopener">&lt;/&gt; Code</a>
+            </div>
           </div>
         </article>
 
         <article class="work-item">
-          <div class="work-head">
-            <span class="work-name">Deep Sequence Models for Brain Decoding and Representation Learning</span>
-            <span class="work-tag">2020–2022</span>
+          <div class="work-fig">
+            <a href="assets/figures/gru.jpg" target="_blank" rel="noopener">
+              <img src="assets/figures/gru.jpg" alt="3D latent trajectories per movie clip and GRU vs. PCA decoding accuracy across latent dimensions" loading="lazy">
+            </a>
+            <span class="fig-cap">Fig. 1</span>
           </div>
-          <div>
+          <div class="work-body">
+            <div class="work-head">
+              <span class="work-tag">2020–2022</span>
+              <span class="work-name">Deep Sequence Models for Brain Decoding and Representation Learning</span>
+            </div>
             <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at ~90% accuracy; a temporal-order ablation (wavestrapping) dropped accuracy by 35+ points, confirming the model relies on true sequence dynamics, not signal statistics alone.</p>
             <ul class="work-specs">
               <li>Compressed 300 input brain regions into a 10-dimensional latent code (96% reduction) while retaining 98% of full-model classification accuracy</li>
               <li>Cross-validated gradient-based saliency against direct network lesioning — ablating the flagged regions caused significantly larger performance drops than random controls</li>
               <li>Froze the learned GRU representation to predict two auxiliary behavioral variables from brain activity alone (p &lt; 0.005 for both)</li>
             </ul>
+            <div class="linkrow">
+              <a class="linkbtn solid" href="https://doi.org/10.1371/journal.pcbi.1008943" target="_blank" rel="noopener">↗ Paper</a>
+              <a class="linkbtn" href="https://github.com/LCE-UMD/GRU" target="_blank" rel="noopener">&lt;/&gt; Code</a>
+            </div>
           </div>
         </article>
 
         <article class="work-item">
-          <div class="work-head">
-            <span class="work-name">Graph Signal Processing: Multiple Kernel Learning &amp; Out-of-Distribution Validation</span>
-            <span class="work-tag">2016–2018</span>
+          <div class="work-fig">
+            <a href="assets/figures/tmkl.jpg" target="_blank" rel="noopener">
+              <img src="assets/figures/tmkl.jpg" alt="Temporal multiple kernel learning pipeline schematic, from resting-state fMRI to latent brain-state prediction" loading="lazy">
+            </a>
+            <span class="fig-cap">Fig. 1</span>
           </div>
-          <div>
+          <div class="work-body">
+            <div class="work-head">
+              <span class="work-tag">2016–2018</span>
+              <span class="work-name">Graph Signal Processing: Multiple Kernel Learning &amp; Out-of-Distribution Validation</span>
+            </div>
             <p class="work-desc">Modeled a dynamical system as a weighted combination of spectral graph filters (LASSO-fit), mapping one relational view of a graph to another — 71% correlation, +19 points over nonlinear baselines.</p>
             <ul class="work-specs">
               <li>Used spectral embedding, Gaussian mixture clustering, and Markov-chain dynamics to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
               <li>Validated with 250+ perturbation stress tests, k-fold cross-validation, and zero-shot transfer to an independent, larger dataset</li>
             </ul>
+            <div class="linkrow">
+              <a class="linkbtn solid" href="https://doi.org/10.1016/j.neuroimage.2018.09.054" target="_blank" rel="noopener">↗ Paper</a>
+              <a class="linkbtn" href="https://github.com/SriniwasGovindaSurampudi/tMKL" target="_blank" rel="noopener">&lt;/&gt; Code</a>
+            </div>
           </div>
         </article>
 
@@ -540,7 +632,7 @@
         <div class="pub-item">
           <span class="pub-idx mono">01</span>
           <div>
-            <p class="pub-title">"Bayesian generative modeling reveals a multi-modal hierarchical architecture in the mouse functional connectome."</p>
+            <p class="pub-title"><a href="https://doi.org/10.64898/2026.06.01.729443" target="_blank" rel="noopener">"Bayesian generative modeling reveals a multi-modal hierarchical architecture in the mouse functional connectome."</a></p>
             <p class="pub-meta">Surampudi, S. G., et al. · <i>European Journal of Neuroscience</i> · submitted</p>
           </div>
         </div>
@@ -554,14 +646,14 @@
         <div class="pub-item">
           <span class="pub-idx mono">03</span>
           <div>
-            <p class="pub-title">"Learning brain dynamics for decoding and predicting individual differences."</p>
+            <p class="pub-title"><a href="https://doi.org/10.1371/journal.pcbi.1008943" target="_blank" rel="noopener">"Learning brain dynamics for decoding and predicting individual differences."</a></p>
             <p class="pub-meta">Misra, J.*, Surampudi, S. G.*, et al. · <i>PLoS Computational Biology</i> 17(9), e1008943 · 2021 · *Co-first author</p>
           </div>
         </div>
         <div class="pub-item">
           <span class="pub-idx mono">04</span>
           <div>
-            <p class="pub-title">"Resting state dynamics meets anatomical structure: Temporal multiple kernel learning (tMKL) model."</p>
+            <p class="pub-title"><a href="https://doi.org/10.1016/j.neuroimage.2018.09.054" target="_blank" rel="noopener">"Resting state dynamics meets anatomical structure: Temporal multiple kernel learning (tMKL) model."</a></p>
             <p class="pub-meta">Surampudi, S. G., Misra, J., et al. · <i>NeuroImage</i> 184, 609–620 · 2019</p>
           </div>
         </div>
