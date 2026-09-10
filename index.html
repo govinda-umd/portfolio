@@ -347,18 +347,6 @@
   .contact-head{ display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:34px; }
   .contact-head h2{ font-size:clamp(28px,4vw,40px); font-weight:800; }
   .contact-head p{ color:var(--muted); max-width:40ch; margin:10px 0 0; }
-  .pinout{ display:grid; grid-template-columns:repeat(4, 1fr); border:1px solid var(--line-strong); }
-  .pinout a{
-    text-decoration:none; padding:20px 16px; border-right:1px solid var(--line-strong);
-    display:flex; flex-direction:column; gap:6px;
-    transition:background .15s ease;
-  }
-  .pinout a:last-child{ border-right:none; }
-  .pinout a:hover{ background:var(--surface); }
-  .pinout .pn{ font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--accent); }
-  .pinout .pv{ font-family:"Archivo", sans-serif; font-weight:700; font-size:15px; }
-  @media (max-width:720px){ .pinout{ grid-template-columns:1fr 1fr; } .pinout a{ border-bottom:1px solid var(--line-strong); } }
-
   .fine-print{
     margin-top:32px; padding-top:20px; border-top:1px solid var(--line);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
@@ -395,8 +383,8 @@
       <div>
         <p class="eyebrow">Personnel Datasheet · Type PhD-ML/Neuro</p>
         <h1>Srinivas Govinda Surampudi</h1>
-        <p class="role">Machine-learning researcher — deep learning, probabilistic modeling &amp; statistical inference.<span class="cursor" aria-hidden="true"></span></p>
-        <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, and retrieval-augmented generation — translating open-ended scientific problems into robust, testable systems.</p>
+        <p class="role">Machine-learning researcher in deep learning, probabilistic modeling &amp; statistical inference.<span class="cursor" aria-hidden="true"></span></p>
+        <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, and retrieval-augmented generation, translating open-ended scientific problems into robust, testable systems.</p>
         <div class="pins">
           <a class="pin primary" href="mailto:govinda.surampudi@gmail.com"><b>&#9993;</b> EMAIL</a>
           <a class="pin" href="https://github.com/govinda-umd" target="_blank" rel="noopener">GITHUB</a>
@@ -419,17 +407,17 @@
 
   <section id="profile">
     <div class="wrap">
-      <p class="eyebrow reveal">Section — Profile</p>
+      <p class="eyebrow reveal">Profile</p>
       <div class="profile-grid">
         <p class="reveal">I'm a machine-learning researcher with a PhD in Electrical and Computer Engineering, specializing in deep learning, representation learning, probabilistic modeling, and statistical inference. I build systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, retrieval-augmented generation, and interpretable ML.</p>
-        <p class="reveal">My work is grounded in hypothesis-driven experimentation, uncertainty quantification, and rigorous model evaluation — built on scalable Python/PyTorch workflows, with a track record of turning open-ended scientific problems into robust, testable systems.</p>
+        <p class="reveal">My work is grounded in hypothesis-driven experimentation, uncertainty quantification, and rigorous model evaluation. It's built on scalable Python/PyTorch workflows, with a track record of turning open-ended scientific problems into robust, testable systems.</p>
       </div>
     </div>
   </section>
 
   <section id="research">
     <div class="wrap">
-      <p class="eyebrow reveal">Section — Selected Research &amp; ML Projects</p>
+      <p class="eyebrow reveal">Selected Research &amp; ML Projects</p>
       <div class="work-list reveal">
 
         <article class="work-item">
@@ -529,7 +517,7 @@
               </g>
               <text x="520" y="428" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)" text-anchor="middle">10/12 SYCOPHANCY CAUGHT</text>
             </svg>
-            <span class="fig-cap">Fig. — original schematic</span>
+            <span class="fig-cap">Fig. · original schematic</span>
           </div>
           <div class="work-body">
             <div class="work-head">
@@ -538,9 +526,9 @@
             </div>
             <p class="work-desc">Self-supervised, multimodal learning aligning human brain signals during motor actions with text captions, achieving a 0.9 F1 score.</p>
             <ul class="work-specs">
-              <li>Explainable AI (CAV/TCAV) — achieved near-ceiling directional sensitivity of predictions to concepts derived via input attributions</li>
-              <li>Built a two-stage RAG pipeline — domain-adapted bi-encoder retrieval plus cross-encoder reranking — lifting top-1 recall of literature claims from 40% to 63%</li>
-              <li>Measured LLM (Llama-3.2-3B) sycophancy — 10/12 false positives — and overcame it by engineering deterministic guardrails from structured signals</li>
+              <li>Explainable AI (CAV/TCAV): achieved near-ceiling directional sensitivity of predictions to concepts derived via input attributions</li>
+              <li>Built a two-stage RAG pipeline (domain-adapted bi-encoder retrieval plus cross-encoder reranking), lifting top-1 recall of literature claims from 40% to 63%</li>
+              <li>Measured LLM (Llama-3.2-3B) sycophancy (10/12 false positives) and overcame it by engineering deterministic guardrails from structured signals</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn" href="https://github.com/govinda-umd/NeuroLens-RAG" target="_blank" rel="noopener">&lt;/&gt; Code</a>
@@ -585,10 +573,10 @@
               <span class="work-tag">2020–2022</span>
               <span class="work-name">Deep Sequence Models for Brain Decoding</span>
             </div>
-            <p class="work-desc">Classified multivariate brain time-series data using LSTMs/GRUs, achieving ~0.9 AUC — a 0.2-point improvement over SOTA models.</p>
+            <p class="work-desc">Classified multivariate brain time-series data using LSTMs/GRUs, achieving ~0.9 AUC, a 0.2-point improvement over SOTA models.</p>
             <ul class="work-specs">
               <li>Learned representation bottlenecks for auxiliary target regression, achieving 0.8 R² (0.1 point above SOTA)</li>
-              <li>Cross-validated gradient-based input attributions against direct causal ablations — ablation dropped prediction accuracy by &gt;40%</li>
+              <li>Cross-validated gradient-based input attributions against direct causal ablations, which dropped prediction accuracy by &gt;40%</li>
               <li>Achieved a 0.66 F1 score on an out-of-distribution classification task using the frozen learned representations</li>
             </ul>
             <div class="linkrow">
@@ -610,10 +598,10 @@
               <span class="work-tag">2016–2018</span>
               <span class="work-name">Graph Signal Processing: Multiple Kernel Learning &amp; Out-of-Distribution Validation</span>
             </div>
-            <p class="work-desc">Reformulated the problem as a weighted combination of spectral graph filters (fit via LASSO) mapping one relational view of a graph to another — 71% correlation, +19 points over SOTA models.</p>
+            <p class="work-desc">Reformulated the problem as a weighted combination of spectral graph filters (fit via LASSO) mapping one relational view of a graph to another, achieving 71% correlation and +19 points over SOTA models.</p>
             <ul class="work-specs">
               <li>Used spectral embedding, Gaussian mixture clustering, and Markov-chain dynamics to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
-              <li>Validated with 250+ perturbation stress tests, repeated k-fold cross-validation, and zero-shot transfer to an independent, larger dataset — 69% correlation</li>
+              <li>Validated with 250+ perturbation stress tests, repeated k-fold cross-validation, and zero-shot transfer to an independent, larger dataset, reaching 69% correlation</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.1016/j.neuroimage.2018.09.054" target="_blank" rel="noopener">↗ Paper</a>
@@ -628,24 +616,22 @@
 
   <section id="cv">
     <div class="wrap">
-      <p class="eyebrow reveal">Section — Curriculum Vitae</p>
+      <p class="eyebrow reveal">Curriculum Vitae</p>
 
       <div class="cv-block reveal">
         <p class="subhead">Research Experience</p>
         <div class="history-scroll">
           <table class="history">
             <thead>
-              <tr><th>Rev</th><th>Period</th><th>Role</th><th>Notes</th></tr>
+              <tr><th>Period</th><th>Role</th><th>Notes</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td class="rev-tag">v2</td>
                 <td class="hist-period">2018 — 2026</td>
                 <td><div class="hist-role">Graduate Research Assistant</div><div class="hist-org">Laboratory of Cognition &amp; Emotion, University of Maryland</div></td>
                 <td class="hist-notes">Developed non-parametric statistical inference workflows (bootstrap resampling, permutation validation), adopted lab-wide; engineered a fault-tolerant MCMC pipeline on a Linux HPC cluster (10,000+ model runs, 4× throughput); led a weekly cross-disciplinary knowledge-sharing group; designed and ran UMD's first video-game-based fMRI experiments (4 paradigms, full scanner integration).</td>
               </tr>
               <tr>
-                <td class="rev-tag">v1</td>
                 <td class="hist-period">2015 — 2018</td>
                 <td><div class="hist-role">Research Assistant, CVIT</div><div class="hist-org">International Institute of Information Technology, Hyderabad</div></td>
                 <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity (two publications); optimized research script runtimes by up to 10× using Slurm and Python parallelism, accelerating large-scale fMRI analyses; mentored 5 lab members in graph signal processing, building technical partnerships that carried into shared PhD programs.</td>
@@ -697,7 +683,7 @@
 
   <section id="publications">
     <div class="wrap">
-      <p class="eyebrow reveal">Section — Selected Publications</p>
+      <p class="eyebrow reveal">Selected Publications</p>
       <div class="pub-list reveal">
         <div class="pub-item">
           <span class="pub-idx mono">01</span>
@@ -740,7 +726,7 @@
 
   <section id="stack">
     <div class="wrap">
-      <p class="eyebrow reveal">Section — Tooling</p>
+      <p class="eyebrow reveal">Tooling</p>
       <div class="stack-groups reveal">
         <div class="stack-group">
           <h3>Machine Learning &amp; AI</h3>
@@ -776,14 +762,7 @@
         <h2>Get in touch.</h2>
         <p>Open to research scientist and applied ML roles. Fastest way to reach me is email.</p>
       </div>
-      <div class="pinout reveal">
-        <a href="mailto:govinda.surampudi@gmail.com"><span class="pn mono">PIN&nbsp;1</span><span class="pv">Email</span></a>
-        <a href="https://github.com/govinda-umd" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;2</span><span class="pv">GitHub</span></a>
-        <a href="https://www.linkedin.com/in/govindasurampudi" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;3</span><span class="pv">LinkedIn</span></a>
-        <a href="https://scholar.google.com/citations?user=02CPu2oAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;4</span><span class="pv">Google Scholar</span></a>
-      </div>
       <div class="fine-print">
-        <span>DOC. S-SURAMPUDI/2026 · PAGE 1 OF 1</span>
         <span>LAST VERIFIED 2026-09-09</span>
       </div>
     </div>
