@@ -399,7 +399,7 @@
         <p class="lede">I develop rigorous, end-to-end ML systems using Transformers, recurrent neural networks, graph-based probabilistic modeling, multimodal contrastive learning, and retrieval-augmented generation — translating open-ended scientific problems into robust, testable systems.</p>
         <div class="pins">
           <a class="pin primary" href="mailto:govinda.surampudi@gmail.com"><b>&#9993;</b> EMAIL</a>
-          <a class="pin" href="tel:+13017428594">+1 (301) 742-8594</a>
+          <a class="pin" href="https://github.com/govinda-umd" target="_blank" rel="noopener">GITHUB</a>
           <a class="pin" href="https://www.linkedin.com/in/govindasurampudi" target="_blank" rel="noopener">LINKEDIN</a>
           <a class="pin" href="https://scholar.google.com/citations?user=02CPu2oAAAAJ&amp;hl=en" target="_blank" rel="noopener">GOOGLE SCHOLAR</a>
         </div>
@@ -407,9 +407,9 @@
       <div class="spec-panel reveal">
         <p class="spec-title">Parameters</p>
         <div class="spec-rows">
-          <div class="spec-row"><span class="k">STATUS</span><span class="v">PhD candidate, defending Jun 2026</span></div>
+          <div class="spec-row"><span class="k">STATUS</span><span class="v">PhD defended, Jun 2026</span></div>
           <div class="spec-row"><span class="k">BASE</span><span class="v">College Park, MD (UMD)</span></div>
-          <div class="spec-row"><span class="k">FOCUS</span><span class="v">Representation learning, Bayesian modeling, interpretable ML</span></div>
+          <div class="spec-row"><span class="k">FOCUS</span><span class="v">Representation learning, Bayesian generative modeling, mechanistic interpretability</span></div>
           <div class="spec-row"><span class="k">EXP.</span><span class="v">10+ years, research (2015–2026)</span></div>
           <div class="spec-row"><span class="k">CORE</span><span class="v">Python · PyTorch · Bayesian inference</span></div>
         </div>
@@ -434,7 +434,7 @@
 
         <article class="work-item">
           <div class="work-fig placeholder">
-            <svg viewBox="0 0 500 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <svg viewBox="0 0 700 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
               <defs>
                 <pattern id="gridPH" width="20" height="20" patternUnits="userSpaceOnUse">
                   <path d="M20 0H0V20" fill="none" stroke="var(--line)" stroke-width="1"/>
@@ -443,34 +443,104 @@
                   <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent)"/>
                 </marker>
               </defs>
-              <rect width="500" height="300" fill="url(#gridPH)"/>
+              <rect width="700" height="460" fill="url(#gridPH)"/>
+              <path d="M350 20V440" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="4 4"/>
+              <path d="M20 240H680" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <!-- A: multimodal encoder -->
+              <text x="30" y="48" font-family="Archivo, sans-serif" font-weight="800" font-size="20" fill="var(--ink)">A</text>
               <g fill="none" stroke="var(--accent-2)" stroke-width="2">
-                <rect x="35" y="120" width="100" height="55" rx="2"/>
-                <rect x="200" y="120" width="100" height="55" rx="2"/>
-                <rect x="365" y="120" width="100" height="55" rx="2"/>
+                <rect x="45" y="88" width="120" height="46" rx="2"/>
+                <rect x="45" y="148" width="120" height="40" rx="2"/>
+                <circle cx="255" cy="125" r="32"/>
               </g>
-              <g stroke="var(--accent)" stroke-width="2" fill="none">
-                <path d="M135 147 H200" marker-end="url(#arrPH)"/>
-                <path d="M300 147 H365" marker-end="url(#arrPH)"/>
+              <path d="M70 111 q10,-14 20,0 t20,0 t20,0" fill="none" stroke="var(--accent-2)" stroke-width="1.5"/>
+              <g stroke="var(--accent-2)" stroke-width="1.5">
+                <line x1="60" y1="164" x2="150" y2="164"/>
+                <line x1="60" y1="174" x2="130" y2="174"/>
               </g>
-              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="middle">
-                <text x="85" y="151">ENCODE</text>
-                <text x="250" y="151">REPRESENT</text>
-                <text x="415" y="151">EVALUATE</text>
+              <g stroke="var(--accent)" stroke-width="1.5" fill="none">
+                <path d="M165 115 L223 121" marker-end="url(#arrPH)"/>
+                <path d="M165 168 L223 134" marker-end="url(#arrPH)"/>
               </g>
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+                <text x="105" y="196">BRAIN SIGNAL</text>
+                <text x="105" y="206">(MOTOR ACTION)</text>
+                <text x="255" y="122">JOINT</text>
+                <text x="255" y="133">EMBED</text>
+              </g>
+              <text x="105" y="220" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" text-anchor="middle">TEXT CAPTION</text>
+              <text x="255" y="172" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)" text-anchor="middle">F1 0.9</text>
+
+              <!-- B: explainability -->
+              <text x="380" y="48" font-family="Archivo, sans-serif" font-weight="800" font-size="20" fill="var(--ink)">B</text>
+              <circle cx="410" cy="125" r="20" fill="none" stroke="var(--accent-2)" stroke-width="2"/>
+              <g stroke="var(--line-strong)" stroke-width="1.5">
+                <line x1="430" y1="118" x2="545" y2="65"/>
+                <line x1="430" y1="130" x2="545" y2="150"/>
+                <line x1="430" y1="132" x2="545" y2="192"/>
+              </g>
+              <line x1="430" y1="122" x2="545" y2="107" stroke="var(--accent)" stroke-width="2"/>
+              <g fill="var(--accent-2)">
+                <circle cx="550" cy="65" r="6"/>
+                <circle cx="550" cy="150" r="6"/>
+                <circle cx="550" cy="192" r="6"/>
+              </g>
+              <circle cx="550" cy="107" r="7" fill="var(--accent)"/>
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">
+                <text x="410" y="153" text-anchor="middle">CAV/TCAV</text>
+                <text x="562" y="110">CONCEPT DIR.</text>
+              </g>
+              <text x="480" y="218" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)" text-anchor="middle">TCAV ≈ CEILING</text>
+
+              <!-- C: RAG verification -->
+              <text x="30" y="268" font-family="Archivo, sans-serif" font-weight="800" font-size="20" fill="var(--ink)">C</text>
+              <g fill="none" stroke="var(--accent-2)" stroke-width="2">
+                <rect x="60" y="288" width="220" height="32" rx="2"/>
+                <rect x="60" y="334" width="220" height="32" rx="2"/>
+                <rect x="60" y="380" width="220" height="32" rx="2"/>
+              </g>
+              <g stroke="var(--accent)" stroke-width="1.5" fill="none">
+                <path d="M170 320 V334" marker-end="url(#arrPH)"/>
+                <path d="M170 366 V380" marker-end="url(#arrPH)"/>
+              </g>
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+                <text x="170" y="308">LITERATURE QUERY</text>
+                <text x="170" y="354">BI-ENCODER RETRIEVAL</text>
+                <text x="170" y="400">CROSS-ENCODER RERANK</text>
+              </g>
+              <text x="170" y="428" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)" text-anchor="middle">TOP-1 40% → 63%</text>
+
+              <!-- D: LLM guardrail -->
+              <text x="380" y="268" font-family="Archivo, sans-serif" font-weight="800" font-size="20" fill="var(--ink)">D</text>
+              <g fill="none" stroke="var(--accent-2)" stroke-width="2">
+                <rect x="410" y="288" width="220" height="32" rx="2"/>
+                <rect x="410" y="334" width="220" height="32" rx="2"/>
+              </g>
+              <circle cx="628" cy="292" r="4" fill="var(--accent)"/>
+              <rect x="500" y="384" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="2" transform="rotate(45 513 397)"/>
+              <g stroke="var(--accent)" stroke-width="1.5" fill="none">
+                <path d="M490 320 L505 384" marker-end="url(#arrPH)"/>
+                <path d="M535 366 L520 384" marker-end="url(#arrPH)"/>
+              </g>
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+                <text x="520" y="308">LLM: "AGREE" (FLAGGED)</text>
+                <text x="520" y="354">RETRIEVAL × CONCEPT SIGNAL</text>
+              </g>
+              <text x="520" y="428" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)" text-anchor="middle">10/12 SYCOPHANCY CAUGHT</text>
             </svg>
-            <span class="fig-cap">Fig. — placeholder</span>
+            <span class="fig-cap">Fig. — original schematic</span>
           </div>
           <div class="work-body">
             <div class="work-head">
               <span class="work-tag">2026</span>
               <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Explainable AI &amp; LLM Evaluation</span>
             </div>
-            <p class="work-desc">Compared three training objectives — supervised multi-task, supervised-contrastive, and self-supervised — across GRU and Transformer backbones for sequence classification: Transformer favored under both supervised objectives, GRU under self-supervised (paired test, 20 splits, p &lt; 0.05).</p>
+            <p class="work-desc">Self-supervised, multimodal learning aligning human brain signals during motor actions with text captions, achieving a 0.9 F1 score.</p>
             <ul class="work-specs">
-              <li>Built a CAV-probing and attribution framework that ran unchanged across all three representation models, surfacing a visual-cue confound via cross-model attribution consensus</li>
-              <li>Built a two-stage RAG verification pipeline — domain-adapted MiniLM bi-encoder plus a cross-encoder reranker — lifting literature-retrieval top-1 accuracy from 43.9% to 61.0%</li>
-              <li>Measured LLM (Llama-3.2-3B) sycophancy — 10/12 judgments defaulted to agreement — and engineered deterministic guardrails from retrieval-stance × concept-sensitivity signals, reducing the LLM to narration only</li>
+              <li>Explainable AI (CAV/TCAV) — achieved near-ceiling directional sensitivity of predictions to concepts derived via input attributions</li>
+              <li>Built a two-stage RAG pipeline — domain-adapted bi-encoder retrieval plus cross-encoder reranking — lifting top-1 recall of literature claims from 40% to 63%</li>
+              <li>Measured LLM (Llama-3.2-3B) sycophancy — 10/12 false positives — and overcame it by engineering deterministic guardrails from structured signals</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn" href="https://github.com/govinda-umd/NeuroLens-RAG" target="_blank" rel="noopener">&lt;/&gt; Code</a>
@@ -490,11 +560,11 @@
               <span class="work-tag">2024–2026</span>
               <span class="work-name">Probabilistic Graph Clustering: Bayesian Model Selection &amp; Uncertainty Quantification</span>
             </div>
-            <p class="work-desc">Compared 7 non-parametric Bayesian generative models via custom MCMC inference to discover latent cluster architectures across high-dimensional graphs.</p>
+            <p class="work-desc">Developed Bayesian generative models fit via MCMC to discover latent structure across high-dimensional graphs.</p>
             <ul class="work-specs">
-              <li>Uncovered multi-solution posterior landscapes overlooked by SOTA methods, using mixture modeling for uncertainty quantification</li>
-              <li>Condensed precision/recall-style partition-overlap metrics into a single interpretable score via Shannon entropy</li>
-              <li>Extended an open-source statistics library to handle a case it didn't support, now a foundational dependency for the project</li>
+              <li>Found the best latent explanation using the minimum description length (MDL) principle, generalizable across a population of graphs</li>
+              <li>Uncovered multi-solution posterior landscapes via Bayesian mixture models, overlooked by SOTA methods</li>
+              <li>Condensed precision/recall-style partition-overlap metrics probabilistically into a single interpretable score</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.64898/2026.06.01.729443" target="_blank" rel="noopener">↗ Paper</a>
@@ -513,13 +583,13 @@
           <div class="work-body">
             <div class="work-head">
               <span class="work-tag">2020–2022</span>
-              <span class="work-name">Deep Sequence Models for Brain Decoding and Representation Learning</span>
+              <span class="work-name">Deep Sequence Models for Brain Decoding</span>
             </div>
-            <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at ~90% accuracy; a temporal-order ablation (wavestrapping) dropped accuracy by 35+ points, confirming the model relies on true sequence dynamics, not signal statistics alone.</p>
+            <p class="work-desc">Classified multivariate brain time-series data using LSTMs/GRUs, achieving ~0.9 AUC — a 0.2-point improvement over SOTA models.</p>
             <ul class="work-specs">
-              <li>Compressed 300 input brain regions into a 10-dimensional latent code (96% reduction) while retaining 98% of full-model classification accuracy</li>
-              <li>Cross-validated gradient-based saliency against direct network lesioning — ablating the flagged regions caused significantly larger performance drops than random controls</li>
-              <li>Froze the learned GRU representation to predict two auxiliary behavioral variables from brain activity alone (p &lt; 0.005 for both)</li>
+              <li>Learned representation bottlenecks for auxiliary target regression, achieving 0.8 R² (0.1 point above SOTA)</li>
+              <li>Cross-validated gradient-based input attributions against direct causal ablations — ablation dropped prediction accuracy by &gt;40%</li>
+              <li>Achieved a 0.66 F1 score on an out-of-distribution classification task using the frozen learned representations</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.1371/journal.pcbi.1008943" target="_blank" rel="noopener">↗ Paper</a>
@@ -540,10 +610,10 @@
               <span class="work-tag">2016–2018</span>
               <span class="work-name">Graph Signal Processing: Multiple Kernel Learning &amp; Out-of-Distribution Validation</span>
             </div>
-            <p class="work-desc">Modeled a dynamical system as a weighted combination of spectral graph filters (LASSO-fit), mapping one relational view of a graph to another — 71% correlation, +19 points over nonlinear baselines.</p>
+            <p class="work-desc">Reformulated the problem as a weighted combination of spectral graph filters (fit via LASSO) mapping one relational view of a graph to another — 71% correlation, +19 points over SOTA models.</p>
             <ul class="work-specs">
               <li>Used spectral embedding, Gaussian mixture clustering, and Markov-chain dynamics to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
-              <li>Validated with 250+ perturbation stress tests, k-fold cross-validation, and zero-shot transfer to an independent, larger dataset</li>
+              <li>Validated with 250+ perturbation stress tests, repeated k-fold cross-validation, and zero-shot transfer to an independent, larger dataset — 69% correlation</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.1016/j.neuroimage.2018.09.054" target="_blank" rel="noopener">↗ Paper</a>
@@ -572,13 +642,13 @@
                 <td class="rev-tag">v2</td>
                 <td class="hist-period">2018 — 2026</td>
                 <td><div class="hist-role">Graduate Research Assistant</div><div class="hist-org">Laboratory of Cognition &amp; Emotion, University of Maryland</div></td>
-                <td class="hist-notes">Engineered a fault-tolerant MCMC pipeline on a Linux HPC cluster (10,000+ model runs, 4× throughput), later adopted lab-wide; founded a cross-disciplinary knowledge-sharing group; co-developed UMD's first real-time behavioral-game fMRI platform and a multi-level analysis pipeline across 6+ datasets.</td>
+                <td class="hist-notes">Developed non-parametric statistical inference workflows (bootstrap resampling, permutation validation), adopted lab-wide; engineered a fault-tolerant MCMC pipeline on a Linux HPC cluster (10,000+ model runs, 4× throughput); led a weekly cross-disciplinary knowledge-sharing group; designed and ran UMD's first video-game-based fMRI experiments (4 paradigms, full scanner integration).</td>
               </tr>
               <tr>
                 <td class="rev-tag">v1</td>
                 <td class="hist-period">2015 — 2018</td>
                 <td><div class="hist-role">Research Assistant, CVIT</div><div class="hist-org">International Institute of Information Technology, Hyderabad</div></td>
-                <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity (two publications); preprocessed large-scale HCP fMRI/DTI data, building the lab's structural and functional connectivity pipelines; mentored a junior lab member in graph signal processing.</td>
+                <td class="hist-notes">Developed graph-based ML and dynamical-systems models linking structural and functional brain connectivity (two publications); optimized research script runtimes by up to 10× using Slurm and Python parallelism, accelerating large-scale fMRI analyses; mentored 5 lab members in graph signal processing, building technical partnerships that carried into shared PhD programs.</td>
               </tr>
             </tbody>
           </table>
@@ -675,25 +745,25 @@
         <div class="stack-group">
           <h3>Machine Learning &amp; AI</h3>
           <div class="chip-row">
-            <span class="chip">Deep Learning</span><span class="chip">Transformers</span><span class="chip">RNNs</span><span class="chip">Representation Learning</span><span class="chip">Contrastive Learning</span><span class="chip">Multimodal Learning</span><span class="chip">Embeddings</span><span class="chip">RAG</span><span class="chip">Bi-/Cross-Encoder Retrieval</span><span class="chip">Collaborative Filtering</span><span class="chip">Recommender Systems</span><span class="chip">NLP</span><span class="chip">LLM Evaluation</span><span class="chip">LLM Fine-Tuning (LoRA)</span><span class="chip">Interpretability (CAV/TCAV)</span>
+            <span class="chip">Deep Learning</span><span class="chip">Transformers</span><span class="chip">RNNs</span><span class="chip">Multimodal Representation Learning</span><span class="chip">Contrastive Learning</span><span class="chip">RAG</span><span class="chip">Matrix Factorization</span><span class="chip">Recommender Systems</span><span class="chip">NLP</span><span class="chip">LLM Evaluation &amp; Fine-Tuning (LoRA)</span><span class="chip">Mechanistic Interpretability (CAV/TCAV)</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Probabilistic Modeling &amp; Statistics</h3>
           <div class="chip-row">
-            <span class="chip">Bayesian Generative Models</span><span class="chip">MCMC</span><span class="chip">Uncertainty Quantification</span><span class="chip">Bayesian Model Comparison</span><span class="chip">Convex Optimization</span><span class="chip">Bootstrap Resampling</span><span class="chip">Permutation Testing</span><span class="chip">Non-Parametric Tests</span><span class="chip">A/B Testing</span><span class="chip">FDR Correction</span><span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">Time-Series Modeling</span><span class="chip">Dimensionality Reduction</span>
+            <span class="chip">Bayesian Generative Models</span><span class="chip">MCMC</span><span class="chip">Uncertainty Quantification</span><span class="chip">Minimum Description Length</span><span class="chip">Convex Optimization</span><span class="chip">Bootstrap Resampling</span><span class="chip">Permutation Testing</span><span class="chip">Non-Parametric Tests</span><span class="chip">A/B Testing</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Programming &amp; Frameworks</h3>
           <div class="chip-row">
-            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Pandas</span><span class="chip">Hugging Face</span><span class="chip">Sentence Transformers</span><span class="chip">Captum</span><span class="chip">MLX</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">R</span>
+            <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Pandas</span><span class="chip">Hugging Face</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">R</span><span class="chip">SQL</span>
           </div>
         </div>
         <div class="stack-group">
           <h3>Computing &amp; ML Workflows</h3>
           <div class="chip-row">
-            <span class="chip">Linux</span><span class="chip">Slurm</span><span class="chip">HPC</span><span class="chip">Distributed Computing</span><span class="chip">Git</span><span class="chip">CI/CD (GitHub Actions)</span><span class="chip">Experiment Tracking</span><span class="chip">Automated Pipelines</span><span class="chip">Reproducible Environments</span>
+            <span class="chip">Linux</span><span class="chip">HPC</span><span class="chip">Distributed &amp; Parallel Computing</span><span class="chip">Git</span><span class="chip">CI/CD</span><span class="chip">Automated Pipelines</span><span class="chip">Reproducible Environments</span>
           </div>
         </div>
       </div>
@@ -708,13 +778,13 @@
       </div>
       <div class="pinout reveal">
         <a href="mailto:govinda.surampudi@gmail.com"><span class="pn mono">PIN&nbsp;1</span><span class="pv">Email</span></a>
-        <a href="tel:+13017428594"><span class="pn mono">PIN&nbsp;2</span><span class="pv">Phone</span></a>
+        <a href="https://github.com/govinda-umd" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;2</span><span class="pv">GitHub</span></a>
         <a href="https://www.linkedin.com/in/govindasurampudi" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;3</span><span class="pv">LinkedIn</span></a>
         <a href="https://scholar.google.com/citations?user=02CPu2oAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span class="pn mono">PIN&nbsp;4</span><span class="pv">Google Scholar</span></a>
       </div>
       <div class="fine-print">
         <span>DOC. S-SURAMPUDI/2026 · PAGE 1 OF 1</span>
-        <span>LAST VERIFIED 2026-09-08</span>
+        <span>LAST VERIFIED 2026-09-09</span>
       </div>
     </div>
   </footer>
