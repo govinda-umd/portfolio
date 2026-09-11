@@ -524,11 +524,13 @@
               <span class="work-tag">2026</span>
               <span class="work-name">NeuroLens-RAG: Multimodal Representation Learning, Explainable AI &amp; LLM Evaluation</span>
             </div>
-            <p class="work-desc">Self-supervised, multimodal learning aligning human brain signals during motor actions with text captions, achieving a 0.9 F1 score.</p>
+            <p class="work-desc">Self-supervised, multimodal learning aligning human brain signals during motor actions with text captions (HCP motor task, 100 subjects, 6 classes), achieving a 0.9 F1 score.</p>
             <ul class="work-specs">
-              <li>Explainable AI (CAV/TCAV): achieved 98% directional sensitivity of predictions to concepts derived via input attributions</li>
+              <li>Explainable AI (CAV/TCAV): achieved 98% directional sensitivity of predictions to concepts derived via input attributions, using one probing framework reused unchanged across all three representation models</li>
               <li>Built a two-stage RAG pipeline (domain-adapted bi-encoder retrieval plus cross-encoder reranking), lifting top-1 recall of literature claims from 40% to 63%</li>
               <li>Measured LLM (Llama-3.2-3B) sycophancy (10/12 false positives) and overcame it by engineering deterministic guardrails from structured signals</li>
+              <li>Audited an earlier architecture comparison for confounds before trusting it: found a 1.83× parameter mismatch and a missing causal-attention mask, fixed both, and confirmed the fix by measuring information leakage directly (1.32 to 0.0)</li>
+              <li>Added targeted LoRA fine-tuning to the local LLM, lifting structured-output compliance from 0/8 to 8/8, while showing the compliance gain alone didn't make its reasoning trustworthy enough to use unsupervised</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn" href="https://github.com/govinda-umd/NeuroLens-RAG" target="_blank" rel="noopener">&lt;/&gt; Code</a>
@@ -548,11 +550,13 @@
               <span class="work-tag">2024–2026</span>
               <span class="work-name">Probabilistic Graph Clustering: Bayesian Model Selection &amp; Uncertainty Quantification</span>
             </div>
-            <p class="work-desc">Developed Bayesian generative models fit via MCMC to discover latent structure across high-dimensional graphs.</p>
+            <p class="work-desc">Developed Bayesian generative models, fit via a custom discrete-space MCMC sampler, to discover latent cluster structure across high-dimensional graphs (mouse resting-state fMRI, 172 regions).</p>
             <ul class="work-specs">
               <li>Found the best latent explanation using the minimum description length (MDL) principle, generalizable across a population of graphs</li>
-              <li>Uncovered multi-solution posterior landscapes via Bayesian mixture models, overlooked by SOTA methods</li>
+              <li>Uncovered multi-solution posterior landscapes via Bayesian mixture models: 4 statistically indistinguishable co-dominant configurations (Friedman χ² = 3.05, p = 0.55), invisible to standard heuristics</li>
               <li>Condensed precision/recall-style partition-overlap metrics probabilistically into a single interpretable score</li>
+              <li>Gated every model comparison on convergence across 5 independent MCMC chains, and proved a widely used heuristic (modularity maximization) is mathematically a special case of one compared model, one that forces a confident answer exactly where the principled version correctly abstains</li>
+              <li>Traced the multiplicity down to specific regions with a per-cluster sub-clustering step, pinpointing primary motor cortex as the specific driver of one cluster's instability</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.64898/2026.06.01.729443" target="_blank" rel="noopener">↗ Paper</a>
@@ -573,11 +577,13 @@
               <span class="work-tag">2020–2022</span>
               <span class="work-name">Deep Sequence Models for Brain Decoding</span>
             </div>
-            <p class="work-desc">Classified multivariate brain time-series data using LSTMs/GRUs, achieving ~0.9 AUC, a 0.2-point improvement over SOTA models.</p>
+            <p class="work-desc">Built GRU-based sequence models to classify 15 naturalistic movie clips from brain activity at 89% accuracy (chance 8%); feedforward and convolutional baselines topped out at 36 to 55%.</p>
             <ul class="work-specs">
-              <li>Learned representation bottlenecks for auxiliary target regression, achieving 0.8 R² (0.1 point above SOTA)</li>
+              <li>A temporal-order ablation (shuffling time while preserving signal statistics) dropped accuracy from 90% to 54%, confirming the model relies on true sequence dynamics, not just overall signal level</li>
+              <li>Compressed 300 input brain regions into a 10-dimensional latent code (96% smaller) while retaining 88% accuracy, close to the full-size model's 89%; a linear (PCA) compression at the same size performed far worse</li>
               <li>Cross-validated gradient-based input attributions against direct causal ablations, which dropped prediction accuracy by &gt;35%</li>
-              <li>Achieved a 0.86 F1 score on an out-of-distribution classification task using the frozen learned representations</li>
+              <li>Froze the learned representation to predict two auxiliary behavioral variables from brain activity alone (p &lt; 0.005 for both), matching a widely used published benchmark</li>
+              <li>Reused the exact same architecture, unchanged, on a second dataset with a different task and signal modality: it still classified well above chance, showing this was a reusable method rather than a model tuned to one dataset</li>
             </ul>
             <div class="linkrow">
               <a class="linkbtn solid" href="https://doi.org/10.1371/journal.pcbi.1008943" target="_blank" rel="noopener">↗ Paper</a>
@@ -598,9 +604,10 @@
               <span class="work-tag">2016–2018</span>
               <span class="work-name">Graph Signal Processing &amp; Multiple Kernel Learning</span>
             </div>
-            <p class="work-desc">Reformulated an ordinary differential equation as a weighted combination of spectral graph filters (fit via LASSO), mapping one relational view of a graph to another, achieving 71% correlation and +19 points over SOTA models.</p>
+            <p class="work-desc">Reformulated an ordinary differential equation as a weighted combination of spectral graph filters (fit via LASSO), mapping one relational view of a graph to another: 71% correlation, against 52% and 37% for two published baselines.</p>
             <ul class="work-specs">
-              <li>Used spectral embedding, Gaussian mixture clustering, and Markov-chain dynamics to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
+              <li>Embedded windowed functional-connectivity snapshots onto a low-dimensional manifold via spectral embedding, clustered them into 12 discrete brain states with a BIC-selected Gaussian mixture model, and sequenced them with a first-order Markov chain to synthesize latent brain-state time series at 87.7% state-assignment accuracy</li>
+              <li>Validated the Markov chain's reproducibility by comparing transition matrices and steady-state distributions across 11 independent train/test splits (mean correlation 0.93)</li>
               <li>Validated with 250+ perturbation stress tests, repeated k-fold cross-validation, and zero-shot transfer to an independent, larger dataset, reaching 69% correlation</li>
             </ul>
             <div class="linkrow">
@@ -763,7 +770,7 @@
         <p>Open to research scientist and applied ML roles. Fastest way to reach me is email.</p>
       </div>
       <div class="fine-print">
-        <span>LAST VERIFIED 2026-09-10</span>
+        <span>LAST VERIFIED 2026-09-11</span>
       </div>
     </div>
   </footer>
